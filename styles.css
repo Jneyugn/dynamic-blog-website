@@ -6,14 +6,64 @@ h1 {
     color: rgb(217, 218, 194);
     text-align: center;
     font-size: 350%;
-    margin: 30px;
+    margin: 10px;
+    font-style: bold;
 }
 
 body {
     font-family: Arial, sans-serif;
     padding: 20px;
     background-color: rgb(149, 168, 149);
+
 }
+header {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 20px;
+    font-style: italic;
+    color: rgb(248, 250, 192);
+    text-align: center;
+    font-size: 350%;
+    margin: 30px;
+    display: inline-block;
+    border-radius: 15px;
+    display: flex;
+    background-color: #ab7ce0;
+    justify-content: center;
+    align-items: center;
+}
+h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 20px;
+    font-style: italic;
+    color: rgb(248, 250, 192);
+    text-align: center;
+    font-size: 350%;
+    margin: 30px;
+    display: inline-block;
+    border-radius: 15px;
+    background-color: #ab7ce0;
+} 
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  form input,
+  form textarea,
+  form button {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      margin-top: 5px;
+  }
 
 button {
     background-color: #ab7ce0;
@@ -23,6 +73,23 @@ button {
     cursor: pointer;
 }
 
+
 button:hover {
     background-color: #8655e2;
+}
+
+.post {
+    background-color: #f4f4f4; 
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 15px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.post h3 {
+    color: #333; 
+}
+
+.post p {
+    color: #555; 
 }
