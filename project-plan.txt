@@ -1,0 +1,7 @@
+- Create three main pages: `index.html` (Homepage), `new-post.html` (Create Post), and `post.html` (View/Edit Post).
+- Use JavaScript to handle CRUD operations.
+
+functions i need to call - 
+add post : create a post and save it to local storage
+display the post: get the post from local storage and display on index.htmml file
+edit post: allow posts to be edited 
