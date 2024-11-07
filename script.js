@@ -12,6 +12,7 @@ function displayPosts() {
     }
     blogList.innerHTML = '';
 
+
     console.log('displayPosts function is running');
 
     const posts = JSON.parse(localStorage.getItem('posts')) || [];
@@ -63,3 +64,7 @@ document.getElementById('new-post-form').addEventListener('submit', function (ev
 }, 100);
 });
 });
+
+function createPost() {
+    window.location.href = 'new-post.html';
+}
