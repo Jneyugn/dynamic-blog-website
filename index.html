@@ -10,6 +10,14 @@
     <header>JENNY"S BLOG</header>
     <div id="blog-list"></div>
     <button onclick="createPost()">New Post</button>
+
+    <form id="new-post-form" style="display: none;">
+        <input type="text" id="title" placeholder="Title" required>
+        <textarea id="content" placeholder="Content" required></textarea>
+        <input type="text" id="image-url" placeholder="Image URL">
+        <button type="submit" id="submit-post">Save Post</button>
+    </form>
+
     <script src="script.js"></script>
 </body>
 </html>

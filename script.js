@@ -1,9 +1,12 @@
 
-//new post + display
+//display the posts
 
 document.addEventListener('DOMContentLoaded', function () {
     displayPosts();
 });
+
+//function for displaying the posts from the localstorage
+
 function displayPosts() {
     const blogList = document.getElementById('blog-list');
     if (!blogList) {
@@ -12,15 +15,14 @@ function displayPosts() {
     }
     blogList.innerHTML = '';
 
-
-    console.log('displayPosts function is running');
-
     const posts = JSON.parse(localStorage.getItem('posts')) || [];
 
     if (posts.length === 0) {
         blogList.innerHTML = '<p>No posts available. Create a new one!</p>';
         return;
     }
+
+    //looping and adding them to the page
     posts.forEach((post, index) => {
         const postElement = document.createElement('div');
         postElement.classList.add('post');
@@ -29,13 +31,58 @@ function displayPosts() {
         const contentElement = document.createElement('p');
         contentElement.textContent = post.content;
 
+        const editButton = document.createElement('button');
+        editButton.textContent = 'Edit';
+        editButton.addEventListener('click', function() {
+            editPost(index);
+        });
         postElement.appendChild(titleElement);
         postElement.appendChild(contentElement);
+        postElement.appendChild(editButton);
 
         blogList.appendChild(postElement);
     });
 }
 
+
+//edit post function
+function editPost(index) {
+    const posts = JSON.parse(localStorage.getItem('posts')) || [];
+    const postToEdit = posts[index];
+
+    //getting post data to edit
+    document.getElementById('title').value = postToEdit.title;
+    document.getElementById('content').value = postToEdit.content;
+    document.getElementById('image-url').value = postToEdit.imageUrl || '';
+
+    document.getElementById('new-post-form').style.display = 'block';
+    document.getElementById('submit-post').textContent = 'Save Changes';
+
+    document.getElementById('new-post-form').addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        posts[index] = {
+            title: document.getElementById('title').value,
+            content: document.getElementById('content').value,
+            imageUrl: document.getElementById('image-url').value
+        };
+
+        localStorage.setItem('posts', JSON.stringify(posts));
+        displayPosts();
+
+        document.getElementById('new-post-form').reset();
+        document.getElementById('new-post-form').style.display = 'none';
+
+        displayPosts();
+
+        setTimeout(function () {
+            window.location.href = 'index.html';
+        }, 100);
+    });
+}
+
+
+//new posts
 document.addEventListener('DOMContentLoaded', function () {
     displayPosts();
 
