@@ -93,3 +93,16 @@ button:hover {
 .post p {
     color: #555; 
 }
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    video, audio {
+        width: 100%;
+        height: auto;
+    }
+}
